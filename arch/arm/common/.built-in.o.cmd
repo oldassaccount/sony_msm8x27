@@ -1,1 +1,0 @@
-cmd_arch/arm/common/built-in.o :=  /home/spinxo/toolchains//arm-linux-androideabi-4.7/bin/arm-linux-androideabi-ld -EL    -r -o arch/arm/common/built-in.o arch/arm/common/gic.o arch/arm/common/cpaccess.o 

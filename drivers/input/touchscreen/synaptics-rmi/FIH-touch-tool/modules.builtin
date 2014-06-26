@@ -1,5 +1,0 @@
-kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/FIH-touch-tool_driver.ko
-kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_file_node_function.ko
-kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_functions.ko
-kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_file_node.ko
-kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_resource.ko
