@@ -71,10 +71,8 @@ SUBSYS(perf)
 SUBSYS(net_prio)
 #endif
 
-<<<<<<< HEAD
 /* */
-=======
+
 #ifdef CONFIG_CGROUP_BFQIO
 SUBSYS(bfqio)
 #endif
->>>>>>> ff1c89e... Add BFQ/SIO/FIOPS/ZEN/VR IO Schedulers

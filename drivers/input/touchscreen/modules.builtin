@@ -1,0 +1,8 @@
+kernel/drivers/input/touchscreen/synaptics-rmi/synaptics_dsx_rmi4_i2c.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/rmi_dev.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/rmi_fw_update.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/FIH-touch-tool_driver.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_file_node_function.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_functions.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_file_node.ko
+kernel/drivers/input/touchscreen/synaptics-rmi/FIH-touch-tool/touch-tool_resource.ko

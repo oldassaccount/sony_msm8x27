@@ -1,0 +1,3 @@
+kernel/drivers/input/sensors/bmm050_driver.ko
+kernel/drivers/input/sensors/bmm050.ko
+kernel/drivers/input/sensors/cm36283.ko
