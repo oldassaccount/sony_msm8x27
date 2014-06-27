@@ -1,4 +1,5 @@
 #!/bin/bash
+toolchain="/home/spinxo/linaro-4.6.2/bin/arm-eabi"
 build=/home/spinxo/out
 kernel="rubik"
 version="1.0.0"
@@ -21,6 +22,8 @@ function cleanme {
 	fi
 	rm -rf zip/boot.img
 	rm -rf arch/arm/boot/"$kerneltype"
+	rm -rf zip/system
+	mkdir -p zip/system/lib/modules
 	make clean && make mrproper
 	echo "Working directory cleaned..."
 }
@@ -54,6 +57,10 @@ fi
 echo "Extracting files..."
 if [ -f arch/arm/boot/"$kerneltype" ]; then
 	cp arch/arm/boot/"$kerneltype" out
+	rm -rf zip/system
+	mkdir -p zip/system/lib/modules
+	find . -name '*.ko' -exec cp {} zip/system/lib/modules/ \; &> /dev/null
+	$toolchain-strip --strip-unneeded zip/system/lib/modules/*.ko &> /dev/null
 else
 	echo "Nothing has been made..."
 	read -p "Clean working directory..(y/n)? : " achoice
