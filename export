@@ -4,7 +4,7 @@ toolchain="/home/spinxo/linaro-4.6.2/bin/arm-eabi"
 build=/home/spinxo/out
 kernel="rubik"
 version="1.0.0"
-rom="stock-4.3"
+rom="cm-11.0"
 vendor="sony"
 device="nicki"
 date=`date +%Y%m%d`
@@ -61,7 +61,7 @@ if [ -f arch/arm/boot/"$kerneltype" ]; then
 	rm -rf zip/system
 	mkdir -p zip/system/lib/modules
 	find . -name '*.ko' -exec cp {} zip/system/lib/modules/ \; &> /dev/null
-	$toolchain-strip --strip-unneeded zip/system/lib/modules/*.ko &> /dev/null
+	$toolchain-strip --strip-unneeded zip/system/lib/modules/wlan.ko &> /dev/null
 else
 	echo "Nothing has been made..."
 	read -p "Clean working directory..(y/n)? : " achoice
