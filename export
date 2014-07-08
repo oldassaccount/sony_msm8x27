@@ -61,7 +61,6 @@ if [ -f arch/arm/boot/"$kerneltype" ]; then
 	rm -rf zip/system
 	mkdir -p zip/system/lib/modules
 	find . -name '*.ko' -exec cp {} zip/system/lib/modules/ \; &> /dev/null
-	$toolchain-strip --strip-unneeded zip/system/lib/modules/wlan.ko &> /dev/null
 else
 	echo "Nothing has been made..."
 	read -p "Clean working directory..(y/n)? : " achoice
