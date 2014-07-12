@@ -31,6 +31,7 @@ if [ -f zip/boot.img ]; then
 			echo "  CLEAN zip"
 			rm -rf zip/boot.img
 			rm -rf arch/arm/boot/"$kerneltype"
+			rm -rf zip/system
 			mkdir -p zip/system/lib/modules
 			make clean && make mrproper
 			echo "Working directory cleaned...";;
@@ -67,6 +68,7 @@ else
                         echo "  CLEAN zip"
                         rm -rf zip/boot.img
                         rm -rf arch/arm/boot/"$kerneltype"
+			rm -rf zip/system
                         mkdir -p zip/system/lib/modules
                         make clean && make mrproper
                         echo "Working directory cleaned...";;
