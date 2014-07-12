@@ -1,10 +1,10 @@
 #!/bin/bash
 LC_ALL=C date +%Y-%m-%d
-toolchain="/home/spinxo/linaro-4.6.2/bin/arm-eabi"
+toolchain="/home/spinxo/sm-androideabi-4.7/bin/arm-linux-androideabi-"
 build=/home/spinxo/out
 kernel="rubik"
 version="1.0.0"
-rom="cm-11.0"
+rom="aosp"
 vendor="sony"
 device="nicki"
 date=`date +%Y%m%d`
@@ -15,19 +15,8 @@ jobcount="-j$(grep -c ^processor /proc/cpuinfo)"
 ps=4096
 base=0x80200000
 ramdisk_offset=0x02000000
-cmdline="console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.selinux=permissive"
-
-function cleanme {
-	if [ -f arch/arm/boot/"$kerneltype" ]; then
-		echo "  CLEAN   zip"
-	fi
-	rm -rf zip/boot.img
-	rm -rf arch/arm/boot/"$kerneltype"
-	rm -rf zip/system
-	mkdir -p zip/system/lib/modules
-	make clean && make mrproper
-	echo "Working directory cleaned..."
-}
+tags_offset=0x00000100
+cmdline="console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3"
 
 rm -rf out
 mkdir out
@@ -37,7 +26,14 @@ if [ -f zip/boot.img ]; then
 	read -p "Previous build found, clean working directory..(y/n)? : " cchoice
 	case "$cchoice" in
 		y|Y )
-			cleanme;;
+			export ARCH=arm
+			export CROSS_COMPILE=$toolchain
+			echo "  CLEAN zip"
+			rm -rf zip/boot.img
+			rm -rf arch/arm/boot/"$kerneltype"
+			mkdir -p zip/system/lib/modules
+			make clean && make mrproper
+			echo "Working directory cleaned...";;
 		n|N )
 			exit 0;;
 		* )
@@ -66,7 +62,14 @@ else
 	read -p "Clean working directory..(y/n)? : " achoice
 	case "$achoice" in
 		y|Y )
-			cleanme;;
+			export ARCH=arm
+                        export CROSS_COMPILE=$toolchain
+                        echo "  CLEAN zip"
+                        rm -rf zip/boot.img
+                        rm -rf arch/arm/boot/"$kerneltype"
+                        mkdir -p zip/system/lib/modules
+                        make clean && make mrproper
+                        echo "Working directory cleaned...";;
 		n|N )
 			exit 0;;
 		* )
